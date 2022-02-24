@@ -1,0 +1,14 @@
+{
+  "name": "habitwebjs",
+  "version": "0.0.1",
+  "description": "Vanilla JS Front-End for GEHabitTracker",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lenny Self",
+  "license": "ISC",
+  "dependencies": {
+    "normalize-css": "^2.3.1"
+  }
+}

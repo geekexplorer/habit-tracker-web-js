@@ -1,0 +1,162 @@
+/* --- Variables Section --- */
+
+:root {
+  --permanent-geranium-lake: #e63232ff;
+  --orange-red: #f3722cff;
+  --yellow-orange-color-wheel: #f8961eff;
+  --sunglow: #ffd043ff;
+  --mantis: #7fc96bff;
+  --jungle-green: #43aa8bff;
+  --celadon-blue: #277da1ff;
+  --dark-cornflower-blue: #3b498eff;
+  --cyber-grape: #66418aff;
+
+  --font-color: #322329;
+  --title-color: #f8961eff;
+  --habit-title-color: #277da1ff;
+  --border-color: #277da1ff;
+  --button-color: #7fc96bff;
+  --modal-title-color: #7fc96bff;
+  --modal-button-color: #ffd043ff;
+  --day-complete-color: #ffd043ff;
+  --day-incomplete-color: lightslategray;
+  --error-color: #e63232ff;
+  --text-error-color: white;
+  --input-border-color: slategrey;
+  --input-slider-color: slategrey;
+  --input-slider-thumb-color: #277da1ff;
+  --box-shadow-color: hsla(0, 0%, 0%, 0.3);
+  --modal-bg-color: rgba(0, 0, 0, 0.8);
+  --link-color: #66418aff;
+}
+
+/* --- Fonts Section --- */
+
+/* shadows-into-light-regular - latin */
+@font-face {
+  font-family: 'Shadows Into Light';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''), url('../fonts/shadows-into-light-v14-latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('../fonts/shadows-into-light-v14-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+@font-face {
+  font-family: 'Shadows Into Light Two';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''), url('../fonts/shadows-into-light-two-v11-latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('../fonts/shadows-into-light-two-v11-latin-regular.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+@font-face {
+  font-family: 'East Sea Dokdo';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''), url('../fonts/east-sea-dokdo-v18-latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('../fonts/east-sea-dokdo-v18-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* --- Borders Section --- */
+
+.hand-drawn-border-1 {
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 10px;
+  transform: rotate(1deg);
+}
+.hand-drawn-border-2 {
+  border-width: 3px 3px 5px 5px;
+  border-radius: 4% 95% 6% 95%/95% 4% 92% 5%;
+  transform: rotate(-2deg);
+}
+
+.hand-drawn-border-3 {
+  border-width: 3px 4px 3px 5px;
+  border-radius: 95% 4% 92% 5%/4% 95% 6% 95%;
+  transform: rotate(2deg);
+}
+
+.hand-drawn-border-4 {
+  border-width: 5px 3px 3px 5px;
+  border-radius: 95% 4% 97% 5%/4% 94% 3% 95%;
+  transform: rotate(2deg);
+}
+
+.box-shadow {
+  box-shadow: 2px 8px 4px -6px var(--box-shadow-color);
+}
+
+/* --- States Section --- */
+
+.hidden {
+  display: none;
+}
+
+/* --- Defaults Section --- */
+
+body {
+  font-family: 'Shadows Into Light Two';
+  background-color: white;
+  color: var(--font-color);
+  background-image: url('../images/dot-grid-light.png');
+  border-color: var (--border-color);
+  border-width: 0.2rem;
+}
+
+a:any-link {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+/* --- App Section ---  */
+.app {
+}
+
+.app-header {
+}
+
+.app-footer {
+}
+
+.app-content {
+}
+
+/* --- Views Section --- */
+
+/* HabitListView */
+
+.habit-list-view {
+}
+
+.habit-list__habit {
+}
+
+.habit-list__habit__details {
+}
+
+.habit-list__habit__title {
+}
+
+.habit-list__habit__start-date {
+}
+
+.habit-list__habit__actions {
+}
+
+/* --- Modals Section --- */
+
+/* Habit Modal */
+.habit-modal {
+}
+
+.habit-modal__header {
+}
+
+.habit-modal__title {
+}
+
+.habit-modal__form {
+}
+
+.habit-modal__actions {
+}
