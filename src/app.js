@@ -3,7 +3,6 @@ import HabitListView from './views/HabitListView.js';
 
 // Controllers
 import HabitController from './controllers/HabitController.js';
-import HabitService from './services/HabitService.js';
 
 // Views
 const habitListView = new HabitListView();
@@ -12,6 +11,10 @@ const viewList = [habitListView];
 // Models
 let currentHabitModel = undefined;
 let habitListModel = undefined;
+
+/*
+  --- Rendering Section ---
+*/
 
 const showView = function (view) {
   viewList.forEach((v) => v.hide());
@@ -23,23 +26,36 @@ const renderHabitListView = function () {
   showView(habitListView);
 };
 
-// --- Handlers Section --- //
+/* 
+  --- Handlers Section ---
+*/
 
 // Habit List Handlers
-const linkHabitListHandlers = function () {};
+const initHabitListHandlers = function () {};
 
-const linkHandlers = function () {
-  linkHabitListHandlers();
+/*
+  --- Initialization --- 
+*/
+
+const initHandlers = function () {
+  initHabitListHandlers();
 };
 
 const initApp = async function () {
-  linkHandlers();
+  // Event Setup
+  initHandlers();
+
+  // Get Habits and start App
   var response = await HabitController.getHabits();
   if (response.success) {
+    console.log(response.data);
     habitListModel = response.data;
     renderHabitListView();
     return;
   }
+
+  // Can't get habit list. :(
+  // Do some error stuff here.
 };
 
 initApp();

@@ -6,10 +6,10 @@ class HabitModel {
 
     this.id = habitData.id;
     this.title = habitData.title;
-    this.startDate = habitData.startDate;
+    this.dateStarted = habitData.dateStarted;
     this.duration = habitData.duration;
     this.days = habitData.days;
-    this.done = habitData.done;
+    this.completed = habitData.completed;
   }
 }
 
