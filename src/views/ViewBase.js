@@ -2,7 +2,7 @@ class ViewBase {
   _data;
   _parentElement;
 
-  render(data) {
+  render() {
     const markup = this._generateMarkup();
     this.clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);

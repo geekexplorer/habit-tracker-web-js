@@ -9,6 +9,9 @@
   "author": "Lenny Self",
   "license": "ISC",
   "dependencies": {
+    "date-fns": "^2.28.0",
+    "dayjs": "^1.10.7",
+    "lodash-es": "^4.17.21",
     "normalize-css": "^2.3.1"
   }
 }
