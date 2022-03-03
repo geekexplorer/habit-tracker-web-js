@@ -7,7 +7,7 @@ const HabitService = {
       const response = await REST.Post(`${API_URL}`, data);
       return this._success(response);
     } catch (err) {
-      return this._fail('Unable to retrive habit list.', err);
+      return this._fail('Unable to create new habit.', err);
     }
   },
 
@@ -16,7 +16,10 @@ const HabitService = {
       const response = await REST.Get(id ? `${API_URL}/${id}` : `${API_URL}`);
       return this._success(response);
     } catch (err) {
-      return this._fail(`Unable to retrieve habit${id ? '. (id: ' + id + '.' : 's.'}`, err);
+      return this._fail(
+        `Unable to retrieve habit${id ? '. (id: ' + id + '.' : 's. <br/>Please reload page to try again.'}`,
+        err
+      );
     }
   },
 
@@ -42,9 +45,9 @@ const HabitService = {
     return { success: true, data: data };
   },
 
-  _fail: function (err = undefined) {
+  _fail: function (message, err = undefined) {
     console.log(err);
-    return { success: false, data: err };
+    return { success: false, data: message };
   },
 };
 

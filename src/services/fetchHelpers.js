@@ -1,4 +1,4 @@
-import { TIMEOUT_SEC } from "../config.js";
+import { TIMEOUT_SEC } from '../config.js';
 
 const timeout = function (s) {
   return new Promise(function (_, reject) {
@@ -8,17 +8,17 @@ const timeout = function (s) {
   });
 };
 
-const POST = "POST";
-const PUT = "PUT";
-const DELETE = "DELETE";
+const POST = 'POST';
+const PUT = 'PUT';
+const DELETE = 'DELETE';
 const HEADERS = {
-  "Content-Type": "application/json",
+  'Content-Type': 'application/json',
 };
 
 export const REST = {
   Get: async function (url) {
     try {
-      const fetchPromise = fetch(url, { cache: "no-store" });
+      const fetchPromise = fetch(url, { cache: 'no-cache' });
       const response = await Promise.race([fetchPromise, timeout(TIMEOUT_SEC)]);
       const data = await response.json();
 
@@ -39,7 +39,7 @@ export const REST = {
         method: POST,
         headers: HEADERS,
         body: JSON.stringify(uploadData),
-        cache: "no-cache",
+        cache: 'no-cache',
       });
 
       const response = await Promise.race([fetchPromise, timeout(TIMEOUT_SEC)]);

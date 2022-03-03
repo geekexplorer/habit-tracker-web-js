@@ -8,7 +8,7 @@ import habitListView from './views/HabitListView.js';
 import deleteHabitModalView from './views/DeleteHabitModalView.js';
 import createHabitModalView from './views/CreateHabitModalView.js';
 import editHabitModalView from './views/EditHabitModalView.js';
-import HabitService from './services/HabitService.js';
+import errorModalView from './views/ErrorModalView.js';
 
 const viewList = [habitListView, deleteHabitModalView, createHabitModalView];
 
@@ -28,6 +28,11 @@ const showView = function (view) {
 const renderHabitListView = function () {
   habitListView.render(habitListModel);
   showView(habitListView);
+};
+
+const renderErrorModal = function (message) {
+  errorModalView.render(message);
+  errorModalView.show();
 };
 
 /* 
@@ -79,7 +84,8 @@ const handleCreateHabitModalCreateHabit = async function (data) {
   const result = await HabitController.CreateHabit(habitModel);
   createHabitModalView.hide();
   if (!result.success) {
-    // TODO: Surface Error
+    renderErrorModal(result.data);
+    return;
   }
 
   habitListModel.push(result.data);
@@ -93,7 +99,7 @@ const handleEditHabitModalEditHabit = async function (data) {
   const result = await HabitController.UpdateHabit(updatedHabit.id, updatedHabit);
   editHabitModalView.hide();
   if (!result.success) {
-    // TODO: Surface App Error
+    renderErrorModal(result.data);
     return;
   }
 
@@ -110,7 +116,7 @@ const handleHabitModalDelete = async function (habitId) {
   const result = await HabitController.DeleteHabit(habitId);
 
   if (!result.success) {
-    // TODO: Surface App Error
+    renderErrorModal(result.data);
     return;
   }
 
@@ -120,6 +126,11 @@ const handleHabitModalDelete = async function (habitId) {
   showView(habitListView);
 };
 
+// ErrorModalView Handlers
+const handleErrorOk = function () {
+  errorModalView.hide();
+};
+
 const initModalHandlers = function () {
   // deleteHabitModal
   deleteHabitModalView.addHandleDelete(handleHabitModalDelete);
@@ -127,6 +138,8 @@ const initModalHandlers = function () {
   createHabitModalView.addCreateHabitHandler(handleCreateHabitModalCreateHabit);
   // editHabitModal
   editHabitModalView.addEditHabitHandler(handleEditHabitModalEditHabit);
+  // errorModal
+  errorModalView.addHandleClickOk(handleErrorOk);
 };
 
 /*
@@ -149,9 +162,7 @@ const initApp = async function () {
     renderHabitListView();
     return;
   }
-
-  // Can't get habit list. :(
-  // Do some error stuff here.
+  renderErrorModal(response.data);
 };
 
 initApp();
